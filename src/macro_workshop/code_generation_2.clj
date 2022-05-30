@@ -11,9 +11,9 @@
   (list '* x y ))
 
 (defmacro make-squarer []
-    `#(* % %)
 
-  )
+  (list 'fn (vector 'x) (list '* 'x 'x))  )
 
 (defmacro make-hello-world []
-  `#(println "Hello World!")   )
+
+  (list 'fn (vector) (list 'println "Hello World!"))  )

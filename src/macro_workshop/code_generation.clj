@@ -9,10 +9,9 @@
   )
 
 (defn generate-squarer []
-   `#(* % %)
-  )
+
+  (list 'fn (vector 'x) (list '* 'x 'x))   )
 
 (defn generate-hello-world-definition []
-  `(fn [ ] (println "Hello World!" ))
 
-  )
+  (list `fn (vector) (list 'println "Hello World!"))  )
