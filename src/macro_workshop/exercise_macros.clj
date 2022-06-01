@@ -5,9 +5,10 @@
   [bindings then else]
 
   `(do
-     ~(when (not (seqable? bindings))
-       ((throw (AssertionError. "if-nonempty-let requires a name/value vector binding"))))
-
+     (when (not (seqable? ~bindings))
+       (throw (AssertionError. "if-nonempty-let requires bound values to be seqable")))
+     (when (not (= 2 (count ~bindings)))
+       (throw (AssertionError. "if-nonempty-let requires a name/value vector binding")))
      (if (not (empty? ~(second bindings)))
        (let [~(first bindings) ~(second bindings)]
          ~then)

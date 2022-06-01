@@ -1,8 +1,9 @@
 (ns macro-workshop.fancy-quoting)
 
 (defn math-operations-set []
- `#{* + - /}
-  )
+  `#{* + - /})
+
+
 (defrecord None [])
 (defrecord Some [value] )
 
@@ -11,3 +12,4 @@
   ([] `(None. ))
   ([x] `(Some. "hi")))
 
+(def f 1)
